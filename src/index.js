@@ -3,11 +3,30 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import UploadPhoto from './UploadPhoto';
+import EditPhoto from './EditPhoto';
+
+import Navbar from './NavBar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+const Navigation = () => {
+  return (
+    <Router>
+      <Navbar /> 
+        <Routes>
+        <Route exact path="/" element={<App />} />
+        <Route path="/uploadpost" element={<UploadPhoto />} />
+        <Route path="/editpost" element={<EditPhoto />} />
+        </Routes>
+    </Router>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Navigation />
   </React.StrictMode>
 );
 
